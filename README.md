@@ -30,10 +30,10 @@ This is **not** a production-grade solar sizing tool. It's a lightweight, playfu
 - A typewriter-effect intro line, animated glowing background particles, and a neon-styled results dialog for visual flair.
 - Custom fonts (`Super Shiny`, `Mutant`, `Bruce`) for the retro/arcade aesthetic — make sure the corresponding font files sit alongside `solar.css`.
 ## Screenshot
-![Main screen](main-screen.png)
+![Main screen](main-screnn.jpg)
 
 ### Results Dialog
-![Results dialog](results.png)
+![Results dialog](results.jpg)
 
 ## Files
 
