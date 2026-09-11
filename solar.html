@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Setup Adventure 🔆</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="solar.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+    </div>
+
+    <div class="text-area">
+        <h2>SOLAR SETUP ADVENTURE!</h2>
+        <p id="typewriter-text"></p> <!-- Text for typewriter effect -->
+        <div class="input-area">
+            <div class="input-box">
+                <label for="fans">Number of Fans:</label>
+                <input type="number" id="fans" name="fans" min="0" placeholder="Enter number of fans">
+            </div>
+            <div class="input-box">
+                <label for="lights">Number of Lights:</label>
+                <input type="number" id="lights" name="lights" min="0" placeholder="Enter number of lights">
+            </div>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="button-area">
+            <button id="reset-btn" onclick="resetInputs()">RESET</button>
+            <button id="submit-btn" onclick="launchSetup()">SUBMIT</button>
+        </div>
+    </div>
+
+    <!-- Dialog box -->
+    <dialog id="resultDialog" style="background-color: rgb(41, 41, 23);">
+        
+        <p id="dialog-message"></p>
+        <div id="solar-panels"></div>
+        <button onclick="closeDialog()">CLOSE</button>
+    </dialog>
+
+    <style>
+        /* Styling the dialog box */
+        dialog {
+            background-color: #000; /* Pure black background */
+            border: 2px solid #00ff00; /* Initial green border */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00; /* Glowy effect */
+            color: #fff; /* White text */
+            padding: 20px;
+            text-align: center;
+            width: 1000px;
+            /* width: 90%; */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: auto;
+        }
+
+        /* Adding style for the text inside the dialog */
+        dialog p {
+            font: 'Poppins';
+            font-size: 1.2rem; /* Slightly larger font size */
+            margin-bottom: 20px;
+        }
+
+        /* Styling the close button */
+        dialog button {
+            margin-top: 5px;
+            background-color: #00ff00; /* Green background */
+            color: #000; /* Black text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Glowing effect on the button */
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Button hover effect */
+        dialog button:hover {
+            background-color: #fff; /* White background */
+            color: #00ff00; /* Green text */
+            box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; /* Stronger glow */
+        }
+
+        /* Dialog fade-in animation */
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.8); /* Dimmed background */
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Keyframes for fade-in effect */
+        @keyframes fadeIn {
+            from {
+                background-color: rgba(0, 0, 0, 0);
+            }
+            to {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        }
+    </style>
+
+
+
+<style>
+   /* Styling the scroll container */
+#scroll-container {
+    max-height: 300px; /* Set the height of the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    border: 2px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    width: 400px; /* Set the width of the box */
+    background: #f9f9f9; /* Light background for contrast */
+    margin: 20px auto; /* Center the box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Solar panels styling */
+#solar-panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 10px;
+    justify-content: center;
+}
+
+</style>
+
+
+    <script>
+       
+document.addEventListener("DOMContentLoaded", function() {
+    const text = "\ngive the number of fans and lights, build your own solar setup!";
+    let index = 0;
+    const speed = 50; // Typing speed in milliseconds
+    const typewriterText = document.getElementById("typewriter-text");
+
+    function typeWriter() {
+        if (index < text.length) {
+            typewriterText.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, speed);
+        } else {
+            typewriterText.style.borderRight = "none"; // Remove caret once typing is complete
+        }
+    }
+    typeWriter();
+});
+
+
+// Function to reset input fields
+function resetInputs() {
+    document.getElementById('fans').value = '';
+    document.getElementById('lights').value = '';
+}
+
+function launchSetup() {
+    const lights = parseInt(document.getElementById('lights').value) || 0;
+    const fans = parseInt(document.getElementById('fans').value) || 0;
+
+    const powerPerFan = 75;  // Power consumption per fan in watts
+    const powerPerLight = 15; // Power consumption per light in watts
+    const solarRadiation = 5.25;  // Solar radiation in kW/m²
+    const panelEfficiency = 0.15;
+    const panelArea = 1.6;
+
+    const averageUsageHours = 12;
+
+    const powerPerPanel = solarRadiation * panelArea * panelEfficiency * 1000; // in watts
+    const totalPowerNeeded = ((fans * powerPerFan) + (lights * powerPerLight))*averageUsageHours;
+    const totalPanels = Math.ceil(totalPowerNeeded / powerPerPanel);
+    const panelCost = 10000;
+    const totalCost = totalPanels * panelCost;
+
+    // Prepare the dialog message
+    const message = `
+        <strong>Solar Setup Calculation Results:</strong><br>
+        Total Power Needed: <strong>${totalPowerNeeded} watts</strong><br>
+        Power Produced per Panel: <strong>${powerPerPanel.toFixed(2)} watts</strong><br>
+        Total Solar Panels Required: <strong>${totalPanels}</strong><br>
+        Total Installation Cost: <strong>৳${totalCost.toLocaleString()}</strong>
+
+       
+    `;
+
+    // Update and display dialog box
+    const dialog = document.getElementById('resultDialog');
+    document.getElementById('dialog-message').innerHTML = message;
+
+
+     // Generate solar panels grid
+     const solarPanelsContainer = document.getElementById('solar-panels');
+    solarPanelsContainer.innerHTML = ''; // Clear previous content
+
+    for (let i = 0; i < totalPanels; i++) {
+    const panel = document.createElement('div');
+    panel.classList.add('solar-panel');
+    panel.innerHTML = '<img src="solar_cell.png" alt="Solar Panel" class="solar-icon">';
+    solarPanelsContainer.appendChild(panel);
+}
+
+    
+    
+    dialog.showModal();
+}
+
+function closeDialog() {
+    const dialog = document.getElementById('resultDialog');
+    dialog.close();
+}
+
+
+
+
+
+       </script>
+        
+        
+</body>
+</html>
+

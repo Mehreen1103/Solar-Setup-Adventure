@@ -1,0 +1,333 @@
+body {
+	margin: 0;
+	 /* Enable vertical scrolling */
+    overflow: hidden; /* Prevent horizontal scrolling */
+	background-color: #121212;
+	
+}
+@font-face {
+	font-family:'Super Shiny' ;
+	src: url(Super\ Shiny.ttf);
+}
+@font-face {
+	font-family: 'Mutant';
+	src: url(MutantAcademyBB.ttf);
+}
+@font-face {
+	font-family:'Bruce';
+	src: url(BruceForeverRegular-X3jd2.ttf);
+}
+.text-area {
+	display: grid;
+	place-items: center;
+	height: 20vh;
+	text-align: center;
+	font-family: "Montserrat", sans-serif;
+	text-transform: uppercase;
+	font-size: 50px;
+	/* -webkit-text-fill-color: transparent; */
+	-webkit-text-stroke: orange;
+}
+.wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	pointer-events: none;
+}
+.round {
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color:  #069e2c;
+	border: 5px solid #069e2c;
+	opacity: 0;
+	box-shadow: 0 0 100px #01f96c, 0 0 10px #09f901, 0 0 20px #01b4f9;
+	animation: animate 4s linear infinite, ani-2 2s linear infinite;
+}
+.round:nth-child(1) {
+	left: 5%;
+	animation-delay: 0.5s;
+}
+.round:nth-child(2) {
+	left: 65%;
+	animation-delay: 1s;
+}
+.round:nth-child(3) {
+	left: 90%;
+	animation-delay: 1.5s;
+}
+.round:nth-child(4) {
+	left: 18%;
+	animation-delay: 2s;
+}
+.round:nth-child(5) {
+	left: 93%;
+	animation-delay: 2.5s;
+}
+.round:nth-child(6) {
+	left: 52%;
+	animation-delay: 3s;
+}
+.round:nth-child(7) {
+	left: 65%;
+	animation-delay: 3.5s;
+}
+.round:nth-child(8) {
+	left: 35%;
+	animation-delay: 4s;
+}
+.round:nth-child(9) {
+	left: 85%;
+	animation-delay: 4.5s;
+}
+.round:nth-child(10) {
+	left: 45%;
+	animation-delay: 5s;
+}
+.round:nth-child(11) {
+	left: 36%;
+	animation-delay: 5.5s;
+}
+.round:nth-child(12) {
+	left: 72%;
+	animation-delay: 6s;
+}
+.round:nth-child(13) {
+	left: 14%;
+	animation-delay: 6.5s;
+}
+.round:nth-child(14) {
+	left: 70%;
+	animation-delay: 7s;
+}
+@keyframes animate {
+	0% {
+		top: 0;
+		opacity: 1;
+	}
+	20% {
+		top: 20%;
+		opacity: 0.8;
+	}
+	40% {
+		top: 40%;
+		opacity: 0.6;
+	}
+	60% {
+		top: 60%;
+		opacity: 0.4;
+	}
+	80% {
+		top: 80%;
+		opacity: 0.2;
+	}
+	100% {
+		top: 100%;
+		opacity: 0;
+	}
+}
+@keyframes ani-2 {
+	0%, 100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(2);
+	}
+}
+
+.text-area h2{
+	font-family: Super Shiny;
+	color:orange;
+}
+
+/* Add this CSS code in your existing style22.css file */
+/* #typewriter-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    border-right: 3px solid #333;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0; 
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+} */
+
+/* @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #333; }
+} */
+#typewriter-text {
+    font-family: 'Mutant'; /* Change to the desired font */
+    font-size: 2rem;
+    color: orange; /* Change to your desired color */
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    border-right: 3px solid #ff5722; /* Same color as the text for the caret */
+    animation: blink-caret 0.75s step-end infinite; /* Blinking caret */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ff5722; }
+}
+
+/* Centering the entire input area */
+/* Centering the entire input area */
+.input-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Styling the input box containers */
+.input-box {
+    display: flex;
+	font-family: 'Montserrat', sans-serif;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px; /* Increased space between the two boxes */
+}
+
+/* Center align labels and add spacing */
+.input-box label {
+	font-family: 'Mutant';
+    font-size: 1.7rem;
+    color: #00ff00; /* Green label color */
+    margin-bottom: 5px; /* Space between label and input box */
+    
+    font-weight: 200;
+}
+
+/* Green glowing input field */
+.input-box input {
+    background-color:white; /* Dark background */
+    color: green; /* Neon green text color */
+    font-size: 2rem;
+    padding: 10px;
+    border: 2px solid green; /* Green border */
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 0 5px white, 0 0 10px whitesmoke; /* Green glow effect */
+    transition: box-shadow 0.3s ease-in-out;
+    text-align: center;
+    width: 250px;
+	height: 25px;
+	
+	font-family:'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/* Placeholder text styling */
+.input-box input::placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+/* Enhanced glow on focus */
+.input-box input:focus {
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+/* Buttons styling */
+.button-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px; /* Space between buttons */
+}
+
+.button-area button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    color: #000; /* Dark text for contrast */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Red glowing RESET button */
+#reset-btn {
+    background-color: #ff0000;
+    color: #ffffff;
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+}
+
+#reset-btn:hover {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+}
+
+/* Green glowing SUBMIT button */
+#submit-btn {
+    background-color: #00ff00;
+    color: #000000;
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+}
+
+#submit-btn:hover {
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+/* Output message styling */
+#output-message {
+    margin-top: 20px;
+    color: #00ff00; /* Green text color */
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+#panelContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#solar-panels {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Wrap panels to the next row if needed */
+    justify-content: center; /* Center panels horizontally */
+    align-items: center; /* Center panels vertically */
+    width: 100%; /* Fill the dialog box width */
+    height: 100%; /* Fill the dialog box height */
+    background-color: transparent; /* Keep background clear */
+}
+
+.solar-icon {
+    width: 40px; /* Adjust the size of the image */
+    height: 40px;
+}
+
+.solar-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid #00ff00; */
+    /* background-color: #111; */
+    width: 50px; /* Adjust the container size */
+    height: 50px;
+    border-radius: 5px;
+    /* box-shadow: 0 0 5px #00ff00; */
+}
+
+
+.resultDialog{
+	background-color: #0019f7;
+
+}
